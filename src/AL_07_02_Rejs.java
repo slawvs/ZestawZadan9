@@ -6,21 +6,21 @@ import java.util.*;
 public class AL_07_02_Rejs {
 
 	public static void main(String[] args) throws IOException {
-		//Scanner input = new Scanner(System.in);
-		//wczytywanie liczby okreslajacej ilosc linii danych
+		
+		//loading a number specifying the number of data lines
 		BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-		int number_of_lines = readInt(bufferRead);
-		for(int i=0; i < number_of_lines ; i++)
+		int numberOfLines = readInt(bufferRead);
+		for(int i=0; i < numberOfLines ; i++)
 		{
 			int startX = readInt(bufferRead);
 			int startY = readInt(bufferRead);
 			int metaX = readInt(bufferRead);
 			int metaY = readInt(bufferRead);
-			int number_of_days = readInt(bufferRead);
-			String list_of_winds_directions="";
-			while(list_of_winds_directions.equals(""))
+			int numberOfDays = readInt(bufferRead);
+			String listOfWindsDirections="";
+			while(listOfWindsDirections.equals(""))
 			{
-				list_of_winds_directions = bufferRead.readLine();
+				listOfWindsDirections = bufferRead.readLine();
 			}
 			int distanceX = startX - metaX;
 			int distanceY = startY - metaY;
@@ -41,9 +41,9 @@ public class AL_07_02_Rejs {
 				whichDirectionY = 'N';
 			}
 			int actualDay=0;
-			while((distanceX != 0 || distanceY!=0 ) && actualDay < number_of_days)
+			while((distanceX != 0 || distanceY!=0 ) && actualDay < numberOfDays)
 			{
-				switch(list_of_winds_directions.charAt(actualDay))
+				switch(listOfWindsDirections.charAt(actualDay))
 				{
 				case 'W' :
 					if( whichDirectionX == 'W' && distanceX!=0 )
@@ -87,7 +87,7 @@ public class AL_07_02_Rejs {
 	
 	public static int readInt(BufferedReader br) throws IOException
 	{
-		//Wczytywaj znaki (spacje, entery i takie tam) az bedzie jakas cyfra (minus zmienia na ujemna)
+		//Load characters until there's a number (minus changes to negative)
 		int znak;
 		int wynik = 0;
 		int znakLiczby = 1;
@@ -101,7 +101,7 @@ public class AL_07_02_Rejs {
 			}
 		} while (znak < '0' || znak > '9');
 		wynik = 0;
-		//Wczytywaj cyfry i tworz inta, az napotkasz inny znak
+		//Load numbers and create int until you encounter a different character
 		while ( (znak >= '0' && znak <= '9'))
 		{
 			wynik = wynik * 10 + znak - '0';
